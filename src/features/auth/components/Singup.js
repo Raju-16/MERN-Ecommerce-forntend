@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Signup() {
+const Signup = () => {
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -47,7 +47,7 @@ export default function Signup() {
                 </label>
                 <div className="text-sm">
                   <a
-                    href="#"
+                    href="/test"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
@@ -109,4 +109,6 @@ export default function Signup() {
       </div>
     </>
   );
-}
+};
+
+export default Signup;

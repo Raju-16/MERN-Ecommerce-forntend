@@ -1,13 +1,12 @@
 import React from "react";
-import Navbar from "../features/navbar/Navbar";
 import ProductList from "../features/product-list/ProductList";
+import Navbar from "../features/navbar/Navbar";
 
 const Home = () => {
   return (
-    <div>
-      <Navbar />
+    <Navbar>
       <ProductList />
-    </div>
+    </Navbar>
   );
 };
 

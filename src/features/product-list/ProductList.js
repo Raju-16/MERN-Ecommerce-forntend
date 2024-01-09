@@ -119,7 +119,7 @@ const products = [
   },
 ];
 
-export default function ProductList() {
+const ProductList = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
@@ -479,4 +479,6 @@ export default function ProductList() {
       </div>
     </div>
   );
-}
+};
+
+export default ProductList;

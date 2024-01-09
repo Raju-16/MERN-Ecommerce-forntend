@@ -2,12 +2,12 @@ import React from "react";
 import "./App.css";
 import AppRouter from "./pages/AppRouter";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <AppRouter />
     </div>
   );
-}
+};
 
 export default App;
