@@ -5,6 +5,7 @@ import SignupPage from "./SignupPage";
 import LoginPage from "./LoginPage";
 import CartPage from "./CartPage";
 import Checkout from "./Checkout";
+import ProductDetail from "../features/product-list/components/ProductDetail";
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/product-detail" element={<ProductDetail />} />
     </Routes>
   );
 };
