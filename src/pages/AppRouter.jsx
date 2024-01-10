@@ -5,7 +5,7 @@ import SignupPage from "./SignupPage";
 import LoginPage from "./LoginPage";
 import CartPage from "./CartPage";
 import Checkout from "./Checkout";
-import ProductDetail from "../features/product-list/components/ProductDetail";
+import ProductDetail from "../features/product/components/ProductDetail";
 
 const AppRouter = () => {
   return (
