@@ -65,8 +65,8 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   return (
-    <div className="bg-white">
-      <div className="pt-6">
+    <div className="bg-white flex justify-center">
+      <div className="pt-6 max-w-6xl">
         <nav aria-label="Breadcrumb">
           <ol className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             {product.breadcrumbs.map((breadcrumb) => (
