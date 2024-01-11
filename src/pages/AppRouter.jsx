@@ -5,7 +5,7 @@ import SignupPage from "./SignupPage";
 import LoginPage from "./LoginPage";
 import CartPage from "./CartPage";
 import Checkout from "./Checkout";
-import ProductDetail from "../features/product/components/ProductDetail";
+import ProductDetailPage from "./ProductDetailPage";
 
 const AppRouter = () => {
   return (
@@ -15,7 +15,7 @@ const AppRouter = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/checkout" element={<Checkout />} />
-      <Route path="/product-detail" element={<ProductDetail />} />
+      <Route path="/product-detail" element={<ProductDetailPage />} />
     </Routes>
   );
 };
