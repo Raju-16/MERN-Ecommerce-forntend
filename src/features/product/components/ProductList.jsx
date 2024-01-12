@@ -14,7 +14,6 @@ import {
   ChevronRightIcon,
 } from "@heroicons/react/20/solid";
 import {
-  fetchAllProductsAsync,
   fetchProductsByFiltersAsync,
 } from "../productSlice";
 
@@ -194,23 +193,44 @@ const ProductList = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
   const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState({});
 
   const handleFilter = (e, section, option) => {
-    const newFilter = { ...filter, [section.id]: option.value };
+    console.log("filter", filter);
+    console.log("section", section);
+    const newFilter = { ...filter };
+    console.log("newFilter", newFilter);
+    console.log(e.target.name);
+    // TODO : on server it will support multiple categories
+    if (e.target.checked) {
+      if (newFilter[section.id]) {
+        newFilter[section.id].push(option.value);
+        console.log("newFilter inside", newFilter);
+      } else {
+        newFilter[section.id] = [option.value];
+      }
+    } else {
+      const index = newFilter[section.id].findIndex(
+        (el) => el === option.value
+      );
+      newFilter[section.id].splice(index, 1);
+    }
+    console.log({ newFilter });
+
     setFilter(newFilter);
-    dispatch(fetchProductsByFiltersAsync(newFilter));
-    console.log(section.id, option.value);
   };
 
   const handleSort = (e, option) => {
-    const newFilter = { ...filter, _sort: option.sort, _order: option.order };
-    setFilter(newFilter);
-    dispatch(fetchProductsByFiltersAsync(newFilter));
+    const sort = { _sort: option.sort, _order: option.order };
+    console.log({ sort });
+    setSort(sort);
   };
 
   useEffect(() => {
-    dispatch(fetchAllProductsAsync());
-  }, [dispatch]);
+    console.log("filter inside the aaa", filter);
+    console.log("sort inside the aaa", sort);
+    dispatch(fetchProductsByFiltersAsync(filter, sort));
+  }, [dispatch, filter, sort]);
 
   return (
     <div className="bg-white">
