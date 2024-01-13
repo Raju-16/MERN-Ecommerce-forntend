@@ -47,7 +47,7 @@ const Signup = () => {
                 </label>
                 <div className="text-sm">
                   <a
-                    href="/test"
+                    href="/#"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?

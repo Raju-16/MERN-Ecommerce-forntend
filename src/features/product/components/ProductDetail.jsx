@@ -228,7 +228,7 @@ const ProductDetail = () => {
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-medium text-gray-900">Size</h3>
                   <a
-                    href="/test"
+                    href="/#"
                     className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                   >
                     Size guide
