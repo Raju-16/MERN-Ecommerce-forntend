@@ -34,8 +34,8 @@ function classNames(...classes) {
 
 const ProductDetail = () => {
   const product = useSelector((state) => state.product.selectedProduct);
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+  const [selectedColor, setSelectedColor] = useState(colors[0]);
+  const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const dispatch = useDispatch();
   const params = useParams();
 
