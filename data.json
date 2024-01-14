@@ -2327,5 +2327,12 @@
       "label": "lighting",
       "checked": false
     }
+  ],
+  "users": [
+    {
+      "email": "r@r.com",
+      "password": "Raju1994",
+      "id": 1
+    }
   ]
 }
