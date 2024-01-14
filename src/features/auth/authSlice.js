@@ -10,11 +10,7 @@ const initialState = {
 export const authSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(createUserAsync.pending, (state) => {
