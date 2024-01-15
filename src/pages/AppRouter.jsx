@@ -11,6 +11,8 @@ import OrderSuccessPage from "./OrderSuccessPage";
 import UserOrdersPage from "./UserOrderPage";
 import PageNotFound from "./PageNotFound";
 import UserProfilePage from "./UserProfilePage";
+import Logout from "../features/auth/components/Logout";
+import ForgotPassword from "../features/auth/components/ForgotPassword";
 
 const AppRouter = () => {
   return (
@@ -52,6 +54,8 @@ const AppRouter = () => {
       <Route path="/order-success/:id" element={<OrderSuccessPage />} />
       <Route path="/orders" element={<UserOrdersPage />} />
       <Route path="/profile" element={<UserProfilePage />} />
+      <Route path="/logout" element={<Logout />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
