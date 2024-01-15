@@ -7,6 +7,9 @@ import CartPage from "./CartPage";
 import Checkout from "./Checkout";
 import ProductDetailPage from "./ProductDetailPage";
 import Protected from "../features/auth/components/Protected";
+import OrderSuccessPage from "./OrderSuccessPage";
+import UserOrdersPage from "./UserOrderPage";
+import PageNotFound from "./PageNotFound";
 
 const AppRouter = () => {
   return (
@@ -45,6 +48,9 @@ const AppRouter = () => {
           </Protected>
         }
       />
+      <Route path="/order-success/:id" element={<OrderSuccessPage />} />
+      <Route path="/orders" element={<UserOrdersPage />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

@@ -13,6 +13,7 @@ const Checkout = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.loggedInUser);
   const items = useSelector((state) => state.cart.items);
+  const currentOrder = useSelector((state) => state.order.currentOrder);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const totalAmount = items.reduce(
@@ -52,12 +53,13 @@ const Checkout = () => {
         user,
         paymentMethod,
         selectedAddress,
+        status: "pending", // other status can be delivered, received.
       };
       dispatch(createOrderAsync(order));
       // need to redirect from here to a new page of order success.
     } else {
       // TODO : we can use proper messaging popup here
-      alert("Enter Address and Payment method");
+      alert("Enter Address and Payment methodsss");
     }
     //TODO : Redirect to order-success page
     //TODO : clear cart after order
@@ -67,6 +69,12 @@ const Checkout = () => {
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {currentOrder && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -75,7 +83,6 @@ const Checkout = () => {
               className="bg-white px-5 py-12 mt-12"
               noValidate
               onSubmit={handleSubmit((data) => {
-                console.log(data);
                 dispatch(
                   updateUserAsync({
                     ...user,
@@ -292,6 +299,7 @@ const Checkout = () => {
                         onChange={handleAddress}
                         name="address"
                         type="radio"
+                        value={index}
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <div className="min-w-0 flex-auto">

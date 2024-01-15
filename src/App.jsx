@@ -7,8 +7,7 @@ import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
 const App = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.loggedInUser);
-
-  console.log({ userINApp: user });
+  console.log("user", user);
 
   useEffect(() => {
     if (user) {
