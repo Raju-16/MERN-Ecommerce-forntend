@@ -10,6 +10,7 @@ import Protected from "../features/auth/components/Protected";
 import OrderSuccessPage from "./OrderSuccessPage";
 import UserOrdersPage from "./UserOrderPage";
 import PageNotFound from "./PageNotFound";
+import UserProfilePage from "./UserProfilePage";
 
 const AppRouter = () => {
   return (
@@ -50,6 +51,7 @@ const AppRouter = () => {
       />
       <Route path="/order-success/:id" element={<OrderSuccessPage />} />
       <Route path="/orders" element={<UserOrdersPage />} />
+      <Route path="/profile" element={<UserProfilePage />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

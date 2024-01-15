@@ -4,11 +4,9 @@ import { fetchLoggedInUserOrderAsync } from "../userSlice";
 
 const UserOrders = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.loggedInUser);
+  const user = useSelector((state) => state.user.userInfo);
   const userOrders = useSelector((state) => state.user.userOrders);
 
-  console.log("userOrders", userOrders);
-  console.log("user", user);
   useEffect(() => {
     dispatch(fetchLoggedInUserOrderAsync(user.id));
   }, [dispatch, user]);
@@ -16,7 +14,7 @@ const UserOrders = () => {
   return (
     <div>
       {userOrders?.map((order) => (
-        <div>
+        <div key={order.id}>
           <div>
             <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">

@@ -2352,16 +2352,7 @@
         {
           "name": "Ramesh",
           "email": "ram@r.com",
-          "phone": "8109123198",
-          "street": "adarsh nagar, b-65",
-          "city": "Rohini",
-          "state": "Delhi",
-          "pinCode": "584796"
-        },
-        {
-          "name": "Rajesh",
-          "email": "raj@raju.com",
-          "phone": "123654796",
+          "phone": "9806704982",
           "street": "Amlori mode",
           "city": "singrauli",
           "state": "MP",
@@ -2370,7 +2361,49 @@
       ]
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "MacBook Pro",
+      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+      "price": 1749,
+      "discountPercentage": 11.02,
+      "rating": 4.57,
+      "stock": 83,
+      "brand": "Apple",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+      "images": [
+        "https://i.dummyjson.com/data/products/6/1.png",
+        "https://i.dummyjson.com/data/products/6/2.jpg",
+        "https://i.dummyjson.com/data/products/6/3.png",
+        "https://i.dummyjson.com/data/products/6/4.jpg"
+      ],
+      "quantity": 2,
+      "user": 1,
+      "id": 1
+    },
+    {
+      "title": "Infinix INBOOK",
+      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+      "price": 1099,
+      "discountPercentage": 11.83,
+      "rating": 4.54,
+      "stock": 96,
+      "brand": "Infinix",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/9/1.jpg",
+        "https://i.dummyjson.com/data/products/9/2.png",
+        "https://i.dummyjson.com/data/products/9/3.png",
+        "https://i.dummyjson.com/data/products/9/4.jpg",
+        "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 1,
+      "id": 2
+    }
+  ],
   "orders": [
     {
       "items": [

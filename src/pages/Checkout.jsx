@@ -11,7 +11,7 @@ import {
 
 const Checkout = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.loggedInUser);
+  const user = useSelector((state) => state.user.userInfo);
   const items = useSelector((state) => state.cart.items);
   const currentOrder = useSelector((state) => state.order.currentOrder);
   const [selectedAddress, setSelectedAddress] = useState(null);
@@ -458,7 +458,7 @@ const Checkout = () => {
                 </div>
                 <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                   <p>
-                    or
+                    or{" "}
                     <Link to="/">
                       <button
                         type="button"
