@@ -13,6 +13,10 @@ import PageNotFound from "./PageNotFound";
 import UserProfilePage from "./UserProfilePage";
 import Logout from "../features/auth/components/Logout";
 import ForgotPassword from "../features/auth/components/ForgotPassword";
+import ProtectedAdmin from "../features/auth/components/ProtectedAdmin";
+import AdminHome from "./AdminHome";
+import AdminProductDetailPage from "./AdminProductDetailPage";
+import AdminProductFormPage from "./AdminProductFormPage";
 
 const AppRouter = () => {
   return (
@@ -23,6 +27,14 @@ const AppRouter = () => {
           <Protected>
             <Home />
           </Protected>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <ProtectedAdmin>
+            <AdminHome />
+          </ProtectedAdmin>
         }
       />
       <Route path="/signup" element={<SignupPage />} />
@@ -56,6 +68,41 @@ const AppRouter = () => {
       <Route path="/profile" element={<UserProfilePage />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+
+      {/* Admin Routes */}
+      <Route
+        path="/"
+        element={
+          <ProtectedAdmin>
+            <AdminHome />
+          </ProtectedAdmin>
+        }
+      />
+      <Route
+        path="/admin/product-detail/:id"
+        element={
+          <ProtectedAdmin>
+            <AdminProductDetailPage />
+          </ProtectedAdmin>
+        }
+      />
+      <Route
+        path="/admin/product-form"
+        element={
+          <ProtectedAdmin>
+            <AdminProductFormPage />
+          </ProtectedAdmin>
+        }
+      />
+      <Route
+        path="/admin/product-form/edit/:id"
+        element={
+          <ProtectedAdmin>
+            <AdminProductFormPage />
+          </ProtectedAdmin>
+        }
+      />
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

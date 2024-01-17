@@ -2,16 +2,18 @@ import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchProductByIdAsync } from "../../product/productSlice";
 import { useParams } from "react-router-dom";
-import { fetchProductByIdAsync } from "../productSlice";
 import { addToCartAsync } from "../../cart/cartSlice";
 
 // TODO: In server data we will add colors, sizes , highlights. to each product
+
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
   { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
   { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
 ];
+
 const sizes = [
   { name: "XXS", inStock: false },
   { name: "XS", inStock: true },
@@ -22,6 +24,7 @@ const sizes = [
   { name: "2XL", inStock: true },
   { name: "3XL", inStock: true },
 ];
+
 const highlights = [
   "Hand cut and sewn locally",
   "Dyed with our proprietary colors",
@@ -33,11 +36,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const ProductDetail = () => {
-  const product = useSelector((state) => state.product.selectedProduct);
+// TODO : Loading UI
+
+export default function AdminProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const user = useSelector((state) => state.auth.loggedInUser);
+  const product = useSelector((state) => state.product.selectedProduct);
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -53,7 +58,7 @@ const ProductDetail = () => {
   }, [dispatch, params.id]);
 
   return (
-    <div className="bg-white flex justify-center">
+    <div className="bg-white">
       {product && (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
@@ -212,7 +217,7 @@ const ProductDetail = () => {
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
                     <a
-                      href="/#"
+                      href="#"
                       className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                     >
                       Size guide
@@ -289,8 +294,8 @@ const ProductDetail = () => {
                 </div>
 
                 <button
-                  type="submit"
                   onClick={handleCart}
+                  type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Add to Cart
@@ -316,7 +321,7 @@ const ProductDetail = () => {
                 </h3>
 
                 <div className="mt-4">
-                  <ul className="list-disc space-y-2 pl-4 text-sm">
+                  <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
                     {highlights.map((highlight) => (
                       <li key={highlight} className="text-gray-400">
                         <span className="text-gray-600">{highlight}</span>
@@ -330,7 +335,7 @@ const ProductDetail = () => {
                 <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
                 <div className="mt-4 space-y-6">
-                  <p className="text-sm text-gray-600">{product.details}</p>
+                  <p className="text-sm text-gray-600">{product.description}</p>
                 </div>
               </div>
             </div>
@@ -339,6 +344,4 @@ const ProductDetail = () => {
       )}
     </div>
   );
-};
-
-export default ProductDetail;
+}
