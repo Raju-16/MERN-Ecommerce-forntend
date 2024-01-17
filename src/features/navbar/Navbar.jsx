@@ -27,6 +27,7 @@ function classNames(...classes) {
 const Navbar = ({ children }) => {
   const items = useSelector((state) => state.cart.items);
   const user = useSelector((state) => state.auth.loggedInUser);
+  console.log('user', user)
 
   return (
     <>
