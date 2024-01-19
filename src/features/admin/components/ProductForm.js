@@ -6,7 +6,7 @@ import {
   updateProductAsync,
 } from "../../product/productSlice";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 function ProductForm() {
@@ -22,6 +22,7 @@ function ProductForm() {
   const dispatch = useDispatch();
   const params = useParams();
   const selectedProduct = useSelector((state) => state.product.selectedProduct);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (params.id) {
@@ -57,7 +58,6 @@ function ProductForm() {
     <form
       noValidate
       onSubmit={handleSubmit((data) => {
-        console.log(data);
         const product = { ...data };
         product.images = [
           product.image1,
@@ -72,17 +72,18 @@ function ProductForm() {
         product.price = +product.price;
         product.stock = +product.stock;
         product.discountPercentage = +product.discountPercentage;
-        console.log(product);
 
         if (params.id) {
           product.id = params.id;
           product.rating = selectedProduct.rating || 0;
           dispatch(updateProductAsync(product));
           reset();
+          navigate("/admin", { replace: true });
         } else {
           dispatch(createProductAsync(product));
           reset();
           //TODO:  on product successfully added clear fields and show a message
+          navigate("/admin", { replace: true });
         }
       })}
     >
@@ -105,12 +106,15 @@ function ProductForm() {
                   <input
                     type="text"
                     {...register("title", {
-                      required: "name is required",
+                      required: "product name is empty",
                     })}
                     id="title"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
+                {errors.title && (
+                  <p className="text-red-500">{errors.title.message}</p>
+                )}
               </div>
             </div>
 
@@ -125,7 +129,7 @@ function ProductForm() {
                 <textarea
                   id="description"
                   {...register("description", {
-                    required: "description is required",
+                    required: "description is empty",
                   })}
                   rows={3}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -135,6 +139,9 @@ function ProductForm() {
               <p className="mt-3 text-sm leading-6 text-gray-600">
                 Write a few sentences about product.
               </p>
+              {errors.description && (
+                <p className="text-red-500">{errors.description.message}</p>
+              )}
             </div>
 
             <div className="col-span-full">
@@ -147,15 +154,20 @@ function ProductForm() {
               <div className="mt-2">
                 <select
                   {...register("brand", {
-                    required: "brand is required",
+                    required: "selet a brand",
                   })}
                 >
                   <option value="">--choose brand--</option>
-                  {brands.map((brand) => (
-                    <option value={brand.value}>{brand.label}</option>
+                  {brands.map((brand, index) => (
+                    <option key={index} value={brand.value}>
+                      {brand.label}
+                    </option>
                   ))}
                 </select>
               </div>
+              {errors.brand && (
+                <p className="text-red-500">{errors.brand.message}</p>
+              )}
             </div>
 
             <div className="col-span-full">
@@ -168,15 +180,20 @@ function ProductForm() {
               <div className="mt-2">
                 <select
                   {...register("category", {
-                    required: "category is required",
+                    required: "select a category",
                   })}
                 >
                   <option value="">--choose category--</option>
-                  {categories.map((category) => (
-                    <option value={category.value}>{category.label}</option>
+                  {categories.map((category, index) => (
+                    <option key={index} value={category.value}>
+                      {category.label}
+                    </option>
                   ))}
                 </select>
               </div>
+              {errors.category && (
+                <p className="text-red-500">{errors.category.message}</p>
+              )}
             </div>
 
             <div className="sm:col-span-2">
@@ -191,15 +208,18 @@ function ProductForm() {
                   <input
                     type="number"
                     {...register("price", {
-                      required: "price is required",
+                      required: "price is empty",
                       min: 1,
-                      max: 10000,
+                      max: 200000,
                     })}
                     id="price"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
+              {errors.price && (
+                <p className="text-red-500">{errors.price.message}</p>
+              )}
             </div>
 
             <div className="sm:col-span-2">
@@ -214,7 +234,7 @@ function ProductForm() {
                   <input
                     type="number"
                     {...register("discountPercentage", {
-                      required: "discountPercentage is required",
+                      required: "discount is empty",
                       min: 0,
                       max: 100,
                     })}
@@ -222,6 +242,11 @@ function ProductForm() {
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
+                {errors.discountPercentage && (
+                  <p className="text-red-500">
+                    {errors.discountPercentage.message}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -237,7 +262,7 @@ function ProductForm() {
                   <input
                     type="number"
                     {...register("stock", {
-                      required: "stock is required",
+                      required: "stock is empty",
                       min: 0,
                     })}
                     id="stock"
@@ -245,6 +270,9 @@ function ProductForm() {
                   />
                 </div>
               </div>
+              {errors.stock && (
+                <p className="text-red-500">{errors.stock.message}</p>
+              )}
             </div>
 
             <div className="sm:col-span-6">
@@ -259,13 +287,16 @@ function ProductForm() {
                   <input
                     type="text"
                     {...register("thumbnail", {
-                      required: "thumbnail is required",
+                      required: "thumbnail is empty",
                     })}
                     id="thumbnail"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
+              {errors.thumbnail && (
+                <p className="text-red-500">{errors.thumbnail.message}</p>
+              )}
             </div>
 
             <div className="sm:col-span-6">
@@ -280,13 +311,16 @@ function ProductForm() {
                   <input
                     type="text"
                     {...register("image1", {
-                      required: "image1 is required",
+                      required: "image1 is empty",
                     })}
                     id="image1"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
+              {errors.image1 && (
+                <p className="text-red-500">{errors.image1.message}</p>
+              )}
             </div>
 
             <div className="sm:col-span-6">
@@ -301,13 +335,16 @@ function ProductForm() {
                   <input
                     type="text"
                     {...register("image2", {
-                      required: "image is required",
+                      required: "image is empty",
                     })}
                     id="image2"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
+              {errors.image2 && (
+                <p className="text-red-500">{errors.image2.message}</p>
+              )}
             </div>
 
             <div className="sm:col-span-6">
@@ -322,12 +359,15 @@ function ProductForm() {
                   <input
                     type="text"
                     {...register("image3", {
-                      required: "image is required",
+                      required: "image is empty",
                     })}
                     id="image3"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
+                {errors.image3 && (
+                  <p className="text-red-500">{errors.image3.message}</p>
+                )}
               </div>
             </div>
           </div>
@@ -414,12 +454,13 @@ function ProductForm() {
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button
+        <Link
+          to={"/admin"}
           type="button"
           className="text-sm font-semibold leading-6 text-gray-900"
         >
           Cancel
-        </button>
+        </Link>
 
         {selectedProduct && (
           <button

@@ -29,14 +29,6 @@ const AppRouter = () => {
           </Protected>
         }
       />
-      <Route
-        path="/"
-        element={
-          <ProtectedAdmin>
-            <AdminHome />
-          </ProtectedAdmin>
-        }
-      />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route
@@ -71,7 +63,7 @@ const AppRouter = () => {
 
       {/* Admin Routes */}
       <Route
-        path="/"
+        path="/admin"
         element={
           <ProtectedAdmin>
             <AdminHome />

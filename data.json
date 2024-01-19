@@ -67,7 +67,6 @@
         "https://i.dummyjson.com/data/products/4/1.jpg",
         "https://i.dummyjson.com/data/products/4/2.jpg",
         "https://i.dummyjson.com/data/products/4/3.jpg",
-        "https://i.dummyjson.com/data/products/4/4.jpg",
         "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
       ]
     },
@@ -85,7 +84,8 @@
       "images": [
         "https://i.dummyjson.com/data/products/5/1.jpg",
         "https://i.dummyjson.com/data/products/5/2.jpg",
-        "https://i.dummyjson.com/data/products/5/3.jpg"
+        "https://i.dummyjson.com/data/products/5/3.jpg",
+        "https://i.dummyjson.com/data/products/5/thumbnail.jpg"
       ]
     },
     {
@@ -1838,6 +1838,61 @@
         "https://i.dummyjson.com/data/products/100/3.jpg",
         "https://i.dummyjson.com/data/products/100/thumbnail.jpg"
       ]
+    },
+    {
+      "title": "Macbook air M2",
+      "description": "Macbook Air M2 laptop by Apple",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": 100000,
+      "discountPercentage": 5,
+      "stock": 10,
+      "thumbnail": "https://rukminim2.flixcart.com/image/416/416/xif0q/computer/y/8/m/macbook-air-thin-and-light-laptop-apple-original-imagqaphwbzpgjzr.jpeg?q=70&crop=false",
+      "images": [
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/computer/y/8/m/macbook-air-thin-and-light-laptop-apple-original-imagqaphwbzpgjzr.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/computer/y/8/m/macbook-air-thin-and-light-laptop-apple-original-imagqaphwbzpgjzr.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/computer/y/8/m/macbook-air-thin-and-light-laptop-apple-original-imagqaphwbzpgjzr.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/computer/y/8/m/macbook-air-thin-and-light-laptop-apple-original-imagqaphwbzpgjzr.jpeg?q=70&crop=false"
+      ],
+      "rating": 0,
+      "id": 101
+    },
+    {
+      "title": "Hp Laptop",
+      "description": "Hp Laptop with elite book",
+      "brand": "HP Pavilion",
+      "category": "laptops",
+      "price": 80000,
+      "discountPercentage": 5,
+      "stock": 10,
+      "thumbnail": "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg",
+      "images": [
+        "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg",
+        "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg",
+        "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg",
+        "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg"
+      ],
+      "rating": 0,
+      "id": 102
+    },
+    {
+      "title": "Hp Laptop",
+      "description": "laptop",
+      "brand": "HP Pavilion",
+      "category": "laptops",
+      "price": 80000,
+      "discountPercentage": 5,
+      "stock": 10,
+      "thumbnail": "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg",
+      "images": [
+        "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg",
+        "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg",
+        "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg",
+        "https://www.hp.com/wcsstore/hpusstore/Banners/Laptops-tileB006.jpg"
+      ],
+      "rating": 0,
+      "id": 103,
+      "deleted": true
     }
   ],
   "brands": [
@@ -2360,6 +2415,13 @@
           "pinCode": "486884"
         }
       ]
+    },
+    {
+      "email": "admin@a.com",
+      "password": "Admin999",
+      "addresses": [],
+      "role": "admin",
+      "id": 2
     }
   ],
   "cart": [
