@@ -154,6 +154,7 @@ const AdminOrders = () => {
                     <td className="py-3 px-6 text-center">
                       {order.id === editableOrderId ? (
                         <select onChange={(e) => handleUpdate(e, order)}>
+                          <option value="0">Status</option>
                           <option value="pending">Pending</option>
                           <option value="dispatched">Dispatched</option>
                           <option value="delivered">Delivered</option>

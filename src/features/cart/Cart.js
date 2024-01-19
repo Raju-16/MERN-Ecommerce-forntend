@@ -67,6 +67,7 @@ const Cart = () => {
                             onChange={(e) => handleQuantity(e, item)}
                             value={item.quantity}
                           >
+                            <option value="0">Quantity</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
