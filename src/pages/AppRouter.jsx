@@ -17,6 +17,7 @@ import ProtectedAdmin from "../features/auth/components/ProtectedAdmin";
 import AdminHome from "./AdminHome";
 import AdminProductDetailPage from "./AdminProductDetailPage";
 import AdminProductFormPage from "./AdminProductFormPage";
+import AdminOrdersPage from "./AdminOrderPage";
 
 const AppRouter = () => {
   return (
@@ -83,6 +84,14 @@ const AppRouter = () => {
         element={
           <ProtectedAdmin>
             <AdminProductFormPage />
+          </ProtectedAdmin>
+        }
+      />
+      <Route
+        path="/admin/orders"
+        element={
+          <ProtectedAdmin>
+            <AdminOrdersPage />
           </ProtectedAdmin>
         }
       />

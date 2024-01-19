@@ -2565,7 +2565,7 @@
         "state": "MP",
         "pinCode": "486884"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 1
     },
     {
@@ -2637,7 +2637,7 @@
         "state": "Delhi",
         "pinCode": "584796"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 2
     }
   ]

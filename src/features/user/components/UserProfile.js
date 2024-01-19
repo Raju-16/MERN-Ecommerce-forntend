@@ -83,7 +83,6 @@ export default function UserProfile() {
               className="bg-white px-5 py-4 mt-4"
               noValidate
               onSubmit={handleSubmit((data) => {
-                console.log(data);
                 handleAdd(data);
                 reset();
               })}
