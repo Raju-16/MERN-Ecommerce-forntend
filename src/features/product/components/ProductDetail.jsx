@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import { fetchProductByIdAsync } from "../productSlice";
 import { addToCartAsync } from "../../cart/cartSlice";
 import { discountedPrice } from "../../../app/constants";
+import { useAlert } from "react-alert";
+import { Grid } from "react-loader-spinner";
 
 // TODO: In server data we will add colors, sizes , highlights. to each product
 const colors = [
@@ -41,12 +43,27 @@ const ProductDetail = () => {
   const user = useSelector((state) => state.auth.loggedInUser);
   const dispatch = useDispatch();
   const params = useParams();
+  const items = useSelector((state) => state.cart.items);
+  const alert = useAlert();
+  const status = useSelector((state) => state.product.status);
 
   const handleCart = (e) => {
     e.preventDefault();
-    const newItem = { ...product, quantity: 1, user: user.id };
-    delete newItem["id"];
-    dispatch(addToCartAsync(newItem));
+    if (items.findIndex((item) => item.productId === product.id) < 0) {
+      console.log({ items, product });
+      const newItem = {
+        ...product,
+        productId: product.id,
+        quantity: 1,
+        user: user.id,
+      };
+      delete newItem["id"];
+      dispatch(addToCartAsync(newItem));
+      // TODO: it will be based on server response of backend
+      alert.success("Item added to Cart");
+    } else {
+      alert.error("Item Already added");
+    }
   };
 
   useEffect(() => {
@@ -55,6 +72,18 @@ const ProductDetail = () => {
 
   return (
     <div className="bg-white flex justify-center">
+      {status === "loading" ? (
+        <Grid
+          height="80"
+          width="80"
+          color="rgb(79, 70, 229) "
+          ariaLabel="grid-loading"
+          radius="12.5"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      ) : null}
       {product && (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">

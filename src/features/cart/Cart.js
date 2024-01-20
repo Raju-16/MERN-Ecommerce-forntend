@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteItemFromCartAsync, updateCartAsync } from "./cartSlice";
 import { discountedPrice } from "../../app/constants";
+import { Grid } from "react-loader-spinner";
+import Modal from "../common/Modal";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
+  const status = useSelector((state) => state.cart.status);
+  const [openModal, setOpenModal] = useState(null);
 
   const totalAmount = items.reduce(
     (amount, item) => discountedPrice(item) * item.quantity + amount,
@@ -32,6 +36,18 @@ const Cart = () => {
               Cart
             </h1>
             <div className="flow-root">
+              {status === "loading" ? (
+                <Grid
+                  height="80"
+                  width="80"
+                  color="rgb(79, 70, 229) "
+                  ariaLabel="grid-loading"
+                  radius="12.5"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                />
+              ) : null}
               <ul className="-my-6 divide-y divide-gray-200">
                 {items.map((item) => (
                   <li key={item.id} className="flex py-6">
@@ -77,9 +93,19 @@ const Cart = () => {
                         </div>
 
                         <div className="flex">
+                          <Modal
+                            title={`Delete ${item.title}`}
+                            message="Are you sure you want to delete this Cart item ?"
+                            dangerOption="Delete"
+                            cancelOption="Cancel"
+                            dangerAction={(e) => handleRemove(e, item.id)}
+                            cancelAction={() => setOpenModal(null)}
+                            showModal={openModal === item.id}
+                          />
                           <button
                             type="button"
-                            onClick={(e) => handleRemove(e, item.id)}
+                            onClick={(e) => setOpenModal(item.id)}
+                            // if we use true/false in setOpenModal that will open modal for all the product because we use modal inside the map function here.
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >
                             Remove

@@ -158,7 +158,6 @@
         "https://i.dummyjson.com/data/products/9/1.jpg",
         "https://i.dummyjson.com/data/products/9/2.png",
         "https://i.dummyjson.com/data/products/9/3.png",
-        "https://i.dummyjson.com/data/products/9/4.jpg",
         "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
       ]
     },
@@ -1893,6 +1892,24 @@
       "rating": 0,
       "id": 103,
       "deleted": true
+    },
+    {
+      "title": "I-Mac M3",
+      "description": "I-Mac with Me processor",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": 190000,
+      "discountPercentage": 5,
+      "stock": 10,
+      "thumbnail": "https://www.apple.com/v/imac/p/images/overview/routers/compare_imac__f7hnie54ekii_large.png",
+      "images": [
+        "https://www.apple.com/v/imac/p/images/overview/color_front_green__eb8qbnemmre6_large.jpg",
+        "https://www.apple.com/v/imac/p/images/overview/color_front_green__eb8qbnemmre6_large.jpg",
+        "https://www.apple.com/v/imac/p/images/overview/color_front_green__eb8qbnemmre6_large.jpg",
+        "https://www.apple.com/v/imac/p/images/overview/routers/compare_imac__f7hnie54ekii_large.png"
+      ],
+      "rating": 0,
+      "id": 104
     }
   ],
   "brands": [
@@ -2413,6 +2430,15 @@
           "city": "singrauli",
           "state": "MP",
           "pinCode": "486884"
+        },
+        {
+          "name": "Sumit Prajapati",
+          "email": "s@s.com",
+          "phone": "09109822870",
+          "street": "247, NAWANAGAR",
+          "city": "VINDHYA NAGAR NTPC TOWNSHIP",
+          "state": "Madhya Pradesh",
+          "pinCode": "486884"
         }
       ]
     },
@@ -2422,49 +2448,129 @@
       "addresses": [],
       "role": "admin",
       "id": 2
+    },
+    {
+      "email": "demo@d.com",
+      "password": "Demo9999",
+      "addresses": [
+        {
+          "name": "Demo",
+          "email": "demo@d.com",
+          "phone": "12345",
+          "street": "shiv kirana store, amlori mode",
+          "city": "Singrauli",
+          "state": "Madhyapradesh",
+          "pinCode": "486884"
+        }
+      ],
+      "role": "user",
+      "id": 3
     }
   ],
   "cart": [
     {
-      "title": "MacBook Pro",
-      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 1749,
-      "discountPercentage": 11.02,
-      "rating": 4.57,
-      "stock": 83,
-      "brand": "Apple",
+      "title": "Microsoft Surface Laptop 4",
+      "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+      "price": 1499,
+      "discountPercentage": 10.23,
+      "rating": 4.43,
+      "stock": 68,
+      "brand": "Microsoft Surface",
       "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+      "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/6/1.png",
-        "https://i.dummyjson.com/data/products/6/2.jpg",
-        "https://i.dummyjson.com/data/products/6/3.png",
-        "https://i.dummyjson.com/data/products/6/4.jpg"
+        "https://i.dummyjson.com/data/products/8/1.jpg",
+        "https://i.dummyjson.com/data/products/8/2.jpg",
+        "https://i.dummyjson.com/data/products/8/3.jpg",
+        "https://i.dummyjson.com/data/products/8/4.jpg",
+        "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
       ],
-      "quantity": 2,
-      "user": 1,
-      "id": 1
+      "productId": 8,
+      "quantity": 1,
+      "user": 2,
+      "id": 3
     },
     {
-      "title": "Infinix INBOOK",
-      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-      "price": 1099,
-      "discountPercentage": 11.83,
-      "rating": 4.54,
-      "stock": 96,
-      "brand": "Infinix",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "title": "OPPOF19",
+      "description": "OPPO F19 is officially announced on April 2021.",
+      "price": 280,
+      "discountPercentage": 17.91,
+      "rating": 4.3,
+      "stock": 123,
+      "brand": "OPPO",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/9/1.jpg",
-        "https://i.dummyjson.com/data/products/9/2.png",
-        "https://i.dummyjson.com/data/products/9/3.png",
-        "https://i.dummyjson.com/data/products/9/4.jpg",
-        "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/4/1.jpg",
+        "https://i.dummyjson.com/data/products/4/2.jpg",
+        "https://i.dummyjson.com/data/products/4/3.jpg",
+        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
       ],
+      "productId": 4,
+      "quantity": 1,
+      "id": 4
+    },
+    {
+      "title": "Huawei P30",
+      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+      "price": 499,
+      "discountPercentage": 10.58,
+      "rating": 4.09,
+      "stock": 32,
+      "brand": "Huawei",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/5/1.jpg",
+        "https://i.dummyjson.com/data/products/5/2.jpg",
+        "https://i.dummyjson.com/data/products/5/3.jpg",
+        "https://i.dummyjson.com/data/products/5/thumbnail.jpg"
+      ],
+      "productId": 5,
+      "quantity": 1,
+      "id": 5
+    },
+    {
+      "title": "Tree Oil 30ml",
+      "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+      "price": 12,
+      "discountPercentage": 4.09,
+      "rating": 4.52,
+      "stock": 78,
+      "brand": "Hemani Tea",
+      "category": "skincare",
+      "thumbnail": "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/17/1.jpg",
+        "https://i.dummyjson.com/data/products/17/2.jpg",
+        "https://i.dummyjson.com/data/products/17/3.jpg",
+        "https://i.dummyjson.com/data/products/17/thumbnail.jpg"
+      ],
+      "productId": 17,
       "quantity": 1,
       "user": 1,
-      "id": 2
+      "id": 6
+    },
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "productId": 2,
+      "quantity": 1,
+      "user": 3,
+      "id": 7
     }
   ],
   "orders": [
@@ -2639,6 +2745,147 @@
       },
       "status": "delivered",
       "id": 2
+    },
+    {
+      "items": [
+        {
+          "title": "MacBook Pro",
+          "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+          "price": 1749,
+          "discountPercentage": 11.02,
+          "rating": 4.57,
+          "stock": 83,
+          "brand": "Apple",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+          "images": [
+            "https://i.dummyjson.com/data/products/6/1.png",
+            "https://i.dummyjson.com/data/products/6/2.jpg",
+            "https://i.dummyjson.com/data/products/6/3.png",
+            "https://i.dummyjson.com/data/products/6/4.jpg"
+          ],
+          "quantity": 2,
+          "user": 1,
+          "id": 1
+        },
+        {
+          "title": "Infinix INBOOK",
+          "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+          "price": 1099,
+          "discountPercentage": 11.83,
+          "rating": 4.54,
+          "stock": 96,
+          "brand": "Infinix",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/9/1.jpg",
+            "https://i.dummyjson.com/data/products/9/2.png",
+            "https://i.dummyjson.com/data/products/9/3.png",
+            "https://i.dummyjson.com/data/products/9/4.jpg",
+            "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 4597,
+      "totalItems": 3,
+      "user": {
+        "id": 1,
+        "email": "r@r.com",
+        "password": "Raju1994",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Raju ",
+            "email": "r@r.com",
+            "phone": "8109462511",
+            "street": "Amlori mode",
+            "city": "Nawanagar",
+            "state": "MP",
+            "pinCode": "486884"
+          },
+          {
+            "name": "Ramesh",
+            "email": "ram@r.com",
+            "phone": "9806704982",
+            "street": "Amlori mode",
+            "city": "singrauli",
+            "state": "MP",
+            "pinCode": "486884"
+          }
+        ]
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Raju ",
+        "email": "r@r.com",
+        "phone": "8109462511",
+        "street": "Amlori mode",
+        "city": "Nawanagar",
+        "state": "MP",
+        "pinCode": "486884"
+      },
+      "status": "pending",
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "title": "perfume Oil",
+          "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+          "price": 13,
+          "discountPercentage": 8.4,
+          "rating": 4.26,
+          "stock": 65,
+          "brand": "Impression of Acqua Di Gio",
+          "category": "fragrances",
+          "thumbnail": "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/11/1.jpg",
+            "https://i.dummyjson.com/data/products/11/2.jpg",
+            "https://i.dummyjson.com/data/products/11/3.jpg",
+            "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
+          ],
+          "productId": 11,
+          "quantity": 1,
+          "user": 3,
+          "id": 7
+        }
+      ],
+      "totalAmount": 13,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@d.com",
+        "password": "Demo9999",
+        "addresses": [
+          {
+            "name": "Demo",
+            "email": "demo@d.com",
+            "phone": "12345",
+            "street": "shiv kirana store, amlori mode",
+            "city": "Singrauli",
+            "state": "Madhyapradesh",
+            "pinCode": "486884"
+          }
+        ],
+        "role": "user",
+        "id": 3
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Demo",
+        "email": "demo@d.com",
+        "phone": "12345",
+        "street": "shiv kirana store, amlori mode",
+        "city": "Singrauli",
+        "state": "Madhyapradesh",
+        "pinCode": "486884"
+      },
+      "status": "pending",
+      "id": 4
     }
   ]
 }

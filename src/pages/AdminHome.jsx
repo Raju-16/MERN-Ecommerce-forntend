@@ -1,4 +1,5 @@
 import AdminProductList from "../features/admin/components/AdminProductList";
+import Footer from "../features/common/Footer";
 import NavBar from "../features/navbar/Navbar";
 
 const AdminHome = () => {
@@ -7,6 +8,7 @@ const AdminHome = () => {
       <NavBar>
         <AdminProductList />
       </NavBar>
+      <Footer />
     </div>
   );
 };

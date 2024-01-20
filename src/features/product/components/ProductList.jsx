@@ -18,6 +18,7 @@ import {
 } from "../productSlice";
 import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
 import Pagination from "../../common/Pagination";
+import { Grid } from "react-loader-spinner";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -39,6 +40,7 @@ const ProductList = () => {
   const totalItems = useSelector((state) => state.product.totalItems);
   const brands = useSelector((state) => state.product.brands);
   const categories = useSelector((state) => state.product.categories);
+  const status = useSelector((state) => state.product.status);
 
   const filters = [
     {
@@ -191,7 +193,7 @@ const ProductList = () => {
               {/* Product grid */}
               <div className="lg:col-span-3">
                 {/* This is Product Item list */}
-                <ProductGridView products={products} />
+                <ProductGridView products={products} status={status} />
               </div>
             </div>
           </section>
@@ -385,11 +387,23 @@ function DesktopViewFilter({ filters, handleFilter }) {
   );
 }
 
-function ProductGridView({ products }) {
+function ProductGridView({ products, status }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+          {status === "loading" ? (
+            <Grid
+              height="80"
+              width="80"
+              color="rgb(79, 70, 229) "
+              ariaLabel="grid-loading"
+              radius="12.5"
+              wrapperStyle={{ justifyContent: "center" }}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : null}
           {products.map((product) => (
             <Link to={`/product-detail/${product.id}`} key={product.id}>
               <div className="group relative border-solid rounded-md border-2 p-3 pb-3 border-gray-200">
@@ -425,7 +439,18 @@ function ProductGridView({ products }) {
                       ${product.price}
                     </p>
                   </div>
-                </div>
+                </div>{" "}
+                {product.deleted && (
+                  <div>
+                    <p className="text-sm text-red-400">product deleted</p>
+                  </div>
+                )}
+                {product.stock <= 0 && (
+                  <div>
+                    <p className="text-sm text-red-400">out of stock</p>
+                  </div>
+                )}
+                {/* TODO: will not be needed when backend is implemented */}
               </div>
             </Link>
           ))}

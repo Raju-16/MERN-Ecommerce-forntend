@@ -4,6 +4,13 @@ import AppRouter from "./pages/AppRouter";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
 import { fetchLoggedInUserAsync } from "./features/user/userSlice";
+import { positions, Provider } from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
+
+const options = {
+  timeout: 5000,
+  position: positions.MIDDLE,
+};
 
 const App = () => {
   const dispatch = useDispatch();
@@ -18,7 +25,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <AppRouter />
+      <Provider template={AlertTemplate} {...options}>
+        <AppRouter />
+      </Provider>
     </div>
   );
 };
