@@ -7,7 +7,6 @@ import {
 
 const initialState = {
   userInfo: null, // this info will be used in case of detailed user info, while auth will only be used for loggedInUser id etc checks
-  userOrders: [],
   status: "idle",
 };
 
@@ -22,14 +21,14 @@ export const userSlice = createSlice({
       })
       .addCase(fetchLoggedInUserOrderAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.userOrders = action.payload;
+        state.userInfo.orders = action.payload;
       })
       .addCase(updateUserAsync.pending, (state) => {
         state.status = "loading";
       })
       .addCase(updateUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.userOrders = action.payload;
+        state.userInfo = action.payload;
       })
       .addCase(fetchLoggedInUserAsync.pending, (state) => {
         state.status = "loading";

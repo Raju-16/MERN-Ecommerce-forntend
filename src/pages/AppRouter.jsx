@@ -56,9 +56,30 @@ const AppRouter = () => {
           </Protected>
         }
       />
-      <Route path="/order-success/:id" element={<OrderSuccessPage />} />
-      <Route path="/orders" element={<UserOrdersPage />} />
-      <Route path="/profile" element={<UserProfilePage />} />
+      <Route
+        path="/order-success/:id"
+        element={
+          <Protected>
+            <OrderSuccessPage />
+          </Protected>
+        }
+      />
+      <Route
+        path="/orders"
+        element={
+          <Protected>
+            <UserOrdersPage />
+          </Protected>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <Protected>
+            <UserProfilePage />
+          </Protected>
+        }
+      />
       <Route path="/logout" element={<Logout />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
 

@@ -166,8 +166,8 @@ const ProductForm = () => {
                     })}
                   >
                     <option value="">--choose brand--</option>
-                    {brands.map((brand, index) => (
-                      <option key={index} value={brand.value}>
+                    {brands.map((brand) => (
+                      <option key={brand.value} value={brand.value}>
                         {brand.label}
                       </option>
                     ))}
@@ -192,8 +192,8 @@ const ProductForm = () => {
                     })}
                   >
                     <option value="">--choose category--</option>
-                    {categories.map((category, index) => (
-                      <option key={index} value={category.value}>
+                    {categories.map((category) => (
+                      <option key={category.value} value={category.value}>
                         {category.label}
                       </option>
                     ))}
