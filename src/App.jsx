@@ -14,12 +14,12 @@ const options = {
 
 const App = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.loggedInUser);
+  const user = useSelector((state) => state.auth.loggedInUserToken);
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchLoggedInUserAsync(user.id));
-      dispatch(fetchItemsByUserIdAsync(user.id));
+      dispatch(fetchLoggedInUserAsync());
+      dispatch(fetchItemsByUserIdAsync());
     }
   }, [dispatch, user]);
 

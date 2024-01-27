@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
-  const user = useSelector((state) => state.auth.loggedInUser);
+  const user = useSelector((state) => state.auth.loggedInUserToken);
   const {
     register,
     handleSubmit,
@@ -95,7 +95,9 @@ const Login = () => {
                   <p className="text-red-500">{errors.password.message}</p>
                 )}
               </div>
-              {error && <p className="text-red-500">{error.message}</p>}
+              {error && (
+                <p className="text-red-500">{error || error.message}</p>
+              )}
             </div>
 
             <div>

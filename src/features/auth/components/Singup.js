@@ -6,7 +6,7 @@ import { createUserAsync } from "../authSlice";
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.loggedInUser);
+  const user = useSelector((state) => state.auth.loggedInUserToken);
   const {
     register,
     handleSubmit,

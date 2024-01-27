@@ -40,7 +40,6 @@ const ProductDetail = () => {
   const product = useSelector((state) => state.product.selectedProduct);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
-  const user = useSelector((state) => state.auth.loggedInUser);
   const dispatch = useDispatch();
   const params = useParams();
   const items = useSelector((state) => state.cart.items);
@@ -53,7 +52,6 @@ const ProductDetail = () => {
       const newItem = {
         product: product.id,
         quantity: 1,
-        user: user.id,
       };
       delete newItem["id"];
       dispatch(addToCartAsync(newItem));
