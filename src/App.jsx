@@ -6,6 +6,7 @@ import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
 import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
+import { checkAuthAsync, selectUserChecked } from "./features/auth/authSlice";
 
 const options = {
   timeout: 5000,
@@ -15,6 +16,11 @@ const options = {
 const App = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.loggedInUserToken);
+  const userChecked = useSelector(selectUserChecked);
+
+  useEffect(() => {
+    dispatch(checkAuthAsync());
+  }, [dispatch]);
 
   useEffect(() => {
     if (user) {
@@ -25,9 +31,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <Provider template={AlertTemplate} {...options}>
-        <AppRouter />
-      </Provider>
+      {userChecked && (
+        <Provider template={AlertTemplate} {...options}>
+          <AppRouter />
+        </Provider>
+      )}
     </div>
   );
 };
