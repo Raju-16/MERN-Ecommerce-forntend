@@ -18,6 +18,7 @@ import AdminHome from "./AdminHome";
 import AdminProductDetailPage from "./AdminProductDetailPage";
 import AdminProductFormPage from "./AdminProductFormPage";
 import AdminOrdersPage from "./AdminOrderPage";
+import StripeCheckout from "./StripeCheckout";
 
 const AppRouter = () => {
   return (
@@ -82,6 +83,15 @@ const AppRouter = () => {
       />
       <Route path="/logout" element={<Logout />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+
+      <Route
+        path="/stripe-checkout"
+        element={
+          <Protected>
+            <StripeCheckout />
+          </Protected>
+        }
+      />
 
       {/* Admin Routes */}
       <Route
